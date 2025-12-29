@@ -39,6 +39,17 @@
     </script>
     
     <style>
+        /* Anchor offsets for fixed navbar */
+        section[id] {
+            scroll-margin-top: 5rem; /* ~80px */
+        }
+
+        /* Render optimization for below-the-fold sections */
+        .cv-auto {
+            content-visibility: auto;
+            contain-intrinsic-size: 900px;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -67,15 +78,6 @@
             color: #4B5563;
         }
         
-        /* Terminal animation */
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        .cursor-blink {
-            animation: blink 1s infinite;
-        }
-        
         /* Latency pulse */
         @keyframes pulse-dot {
             0%, 100% { transform: scale(1); opacity: 1; }
@@ -84,14 +86,28 @@
         .pulse-dot {
             animation: pulse-dot 2s infinite;
         }
-        
-        /* Tab transition */
-        .tab-content {
-            transition: opacity 0.3s ease, transform 0.3s ease;
+
+        /* Reduce expensive effects on mobile/low power */
+        @media (max-width: 640px) {
+            nav {
+                -webkit-backdrop-filter: none !important;
+                backdrop-filter: none !important;
+            }
         }
-        .tab-content.hidden {
-            opacity: 0;
-            transform: translateY(10px);
+
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+            .pulse-dot {
+                animation: none !important;
+            }
+            * {
+                transition-duration: 0.001ms !important;
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+            }
         }
     </style>
 </head>
@@ -284,7 +300,7 @@
     <!-- ============================================ -->
     <!-- SECTION 2: Tech Stack Logos -->
     <!-- ============================================ -->
-    <section id="integrations" class="py-16 border-y border-brand-gray bg-brand-dark/50">
+    <section id="integrations" class="cv-auto py-16 border-y border-brand-gray bg-brand-dark/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-gray-500 text-sm font-medium mb-8 uppercase tracking-wider">
                 Integrates seamlessly with
@@ -336,7 +352,7 @@
     <!-- ============================================ -->
     <!-- SECTION 3: Architecture Breakdown -->
     <!-- ============================================ -->
-    <section id="features" class="py-20 lg:py-28">
+    <section id="features" class="cv-auto py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -414,7 +430,7 @@
     <!-- ============================================ -->
     <!-- SECTION 4: Feature Deep Dive (Tabs) -->
     <!-- ============================================ -->
-    <section id="deep-dive" class="py-20 lg:py-28 bg-brand-dark/50">
+    <section id="deep-dive" class="cv-auto py-20 lg:py-28 bg-brand-dark/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -642,7 +658,7 @@
     <!-- ============================================ -->
     <!-- SECTION 5: Pricing Transparent -->
     <!-- ============================================ -->
-    <section id="pricing" class="py-20 lg:py-28">
+    <section id="pricing" class="cv-auto py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -778,7 +794,7 @@
     <!-- ============================================ -->
     <!-- SECTION 6: Developer Resources -->
     <!-- ============================================ -->
-    <section id="developers" class="py-20 lg:py-28 bg-brand-dark">
+    <section id="developers" class="cv-auto py-20 lg:py-28 bg-brand-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -852,7 +868,7 @@
     <!-- ============================================ -->
     <!-- SECTION 7: Footer -->
     <!-- ============================================ -->
-    <footer class="py-16 border-t border-brand-gray bg-brand-black">
+    <footer class="cv-auto py-16 border-t border-brand-gray bg-brand-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
                 <!-- Brand Column -->
@@ -951,79 +967,123 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.setAttribute('aria-controls', 'mobile-menu');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+            });
+        }
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Tab Switching
-        const tabButtons = document.querySelectorAll('.tab-button');
+        // Tab Switching (minimize DOM work per click)
+        const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
         const tabContents = {
-            'callflow': document.getElementById('tab-callflow'),
-            'analytics': document.getElementById('tab-analytics'),
-            'api': document.getElementById('tab-api')
+            callflow: document.getElementById('tab-callflow'),
+            analytics: document.getElementById('tab-analytics'),
+            api: document.getElementById('tab-api')
         };
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tabId = button.dataset.tab;
-                
-                // Update button styles
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('bg-brand-gray', 'border-brand-yellow');
-                    btn.classList.add('bg-brand-black', 'border-brand-gray', 'hover:border-brand-gray-light');
-                    btn.querySelector('.w-12').classList.remove('bg-brand-yellow/20');
-                    btn.querySelector('.w-12').classList.add('bg-brand-gray');
-                    btn.querySelector('svg').classList.remove('text-brand-yellow');
-                    btn.querySelector('svg').classList.add('text-gray-400');
-                });
-                
-                button.classList.remove('bg-brand-black', 'border-brand-gray', 'hover:border-brand-gray-light');
-                button.classList.add('bg-brand-gray', 'border-brand-yellow');
-                button.querySelector('.w-12').classList.remove('bg-brand-gray');
-                button.querySelector('.w-12').classList.add('bg-brand-yellow/20');
-                button.querySelector('svg').classList.remove('text-gray-400');
-                button.querySelector('svg').classList.add('text-brand-yellow');
-                
-                // Update content visibility
-                Object.keys(tabContents).forEach(key => {
-                    if (key === tabId) {
-                        tabContents[key].classList.remove('hidden');
-                    } else {
-                        tabContents[key].classList.add('hidden');
-                    }
-                });
+
+        const tabMeta = new Map(
+            tabButtons.map(btn => [
+                btn,
+                {
+                    iconBox: btn.querySelector('.w-12'),
+                    iconSvg: btn.querySelector('svg')
+                }
+            ])
+        );
+
+        function setTabButtonActive(btn, active) {
+            const meta = tabMeta.get(btn);
+            if (!meta) return;
+
+            if (active) {
+                btn.classList.remove('bg-brand-black', 'border-brand-gray', 'hover:border-brand-gray-light');
+                btn.classList.add('bg-brand-gray', 'border-brand-yellow');
+                btn.setAttribute('aria-selected', 'true');
+                if (meta.iconBox) {
+                    meta.iconBox.classList.remove('bg-brand-gray');
+                    meta.iconBox.classList.add('bg-brand-yellow/20');
+                }
+                if (meta.iconSvg) {
+                    meta.iconSvg.classList.remove('text-gray-400');
+                    meta.iconSvg.classList.add('text-brand-yellow');
+                }
+                return;
+            }
+
+            btn.classList.remove('bg-brand-gray', 'border-brand-yellow');
+            btn.classList.add('bg-brand-black', 'border-brand-gray', 'hover:border-brand-gray-light');
+            btn.setAttribute('aria-selected', 'false');
+            if (meta.iconBox) {
+                meta.iconBox.classList.remove('bg-brand-yellow/20');
+                meta.iconBox.classList.add('bg-brand-gray');
+            }
+            if (meta.iconSvg) {
+                meta.iconSvg.classList.remove('text-brand-yellow');
+                meta.iconSvg.classList.add('text-gray-400');
+            }
+        }
+
+        let activeTabId = tabButtons.find(b => b.classList.contains('border-brand-yellow'))?.dataset.tab || 'callflow';
+
+        tabButtons.forEach(btn => {
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('aria-selected', btn.dataset.tab === activeTabId ? 'true' : 'false');
+            btn.addEventListener('click', () => {
+                const nextTabId = btn.dataset.tab;
+                if (!nextTabId || nextTabId === activeTabId) return;
+
+                const prevTabId = activeTabId;
+                activeTabId = nextTabId;
+
+                const prevButton = tabButtons.find(b => b.dataset.tab === prevTabId);
+                if (prevButton) setTabButtonActive(prevButton, false);
+                setTabButtonActive(btn, true);
+
+                const prevContent = tabContents[prevTabId];
+                const nextContent = tabContents[nextTabId];
+                if (prevContent) prevContent.classList.add('hidden');
+                if (nextContent) nextContent.classList.remove('hidden');
             });
         });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // Close mobile menu if open
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
+
+        // Anchor clicks: rely on native + CSS smooth scroll; just close mobile menu
+        document.addEventListener('click', (e) => {
+            const a = e.target?.closest?.('a[href^="#"]');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (!href || href === '#') return;
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
         
         // Add scroll effect to navbar
         const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
+        let navShadowOn = false;
+        let navTicking = false;
+
+        function updateNavShadow() {
+            navTicking = false;
+            if (!nav) return;
+            const shouldEnable = window.scrollY > 10;
+            if (shouldEnable === navShadowOn) return;
+            navShadowOn = shouldEnable;
+            nav.classList.toggle('shadow-lg', shouldEnable);
+        }
+
+        window.addEventListener(
+            'scroll',
+            () => {
+                if (navTicking) return;
+                navTicking = true;
+                window.requestAnimationFrame(updateNavShadow);
+            },
+            { passive: true }
+        );
     </script>
 </body>
 </html>
