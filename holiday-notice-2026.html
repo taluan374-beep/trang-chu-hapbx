@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Octopool - Thông báo nghỉ Tết Dương lịch 2026</title>
+  <meta name="description" content="Thông báo nghỉ Tết Dương lịch 2026 của Octopool. Đóng cửa 01/01–02/01/2026. Mở cửa lại 03/01/2026." />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ocean: {
+              50: '#E6FAFF',
+              100: '#C9F1FF',
+              200: '#8FE3FF',
+              300: '#59D6FF',
+              400: '#22C8FF',
+              500: '#00AEE6',
+              600: '#008AB8',
+              700: '#006A8E',
+              800: '#004A66',
+              900: '#003044',
+            },
+            gold: {
+              50: '#FFF7D6',
+              100: '#FFEBA1',
+              200: '#FFDA5C',
+              300: '#FACC15',
+              400: '#EAB308',
+              500: '#C79000',
+              600: '#9C6F00',
+            },
+            lantern: {
+              500: '#E11D48',
+              600: '#BE123C',
+              700: '#9F1239',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --shadow-soft: 0 14px 40px rgba(0, 48, 68, 0.22);
+      --shadow-card: 0 10px 24px rgba(0, 48, 68, 0.18);
+    }
+
+    body {
+      background:
+        radial-gradient(900px 600px at 20% 15%, rgba(255, 247, 214, 0.35), rgba(255, 247, 214, 0) 60%),
+        radial-gradient(900px 700px at 85% 20%, rgba(143, 227, 255, 0.35), rgba(143, 227, 255, 0) 60%),
+        radial-gradient(900px 700px at 35% 95%, rgba(34, 200, 255, 0.22), rgba(34, 200, 255, 0) 60%),
+        linear-gradient(180deg, #8FE3FF 0%, #59D6FF 35%, #22C8FF 60%, #00AEE6 100%);
+      min-height: 100vh;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .gold-text {
+      background: linear-gradient(180deg, #FFF7D6 0%, #FFEBA1 25%, #FACC15 55%, #C79000 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .ring {
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.55);
+    }
+
+    .lantern-sway {
+      transform-origin: top center;
+      animation: sway 5s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-1.2deg); }
+      50% { transform: rotate(1.2deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lantern-sway { animation: none; }
+    }
+
+    @media print {
+      html, body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .print-hidden { display: none !important; }
+      body { min-height: auto; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-ocean-900">
+  <main class="px-4 py-10 sm:py-14">
+    <div class="mx-auto w-full max-w-[980px]">
+      <!-- Poster frame -->
+      <section class="relative overflow-hidden rounded-[28px] ring-1 ring-white/50 shadow-[var(--shadow-soft)]">
+        <!-- Decorative border -->
+        <div class="absolute inset-0 pointer-events-none ring rounded-[28px]"></div>
+
+        <!-- Top decorations -->
+        <div class="absolute inset-x-0 top-0 h-40 pointer-events-none">
+          <!-- subtle wave pattern -->
+          <svg class="absolute left-0 top-0 h-full w-full opacity-20" viewBox="0 0 1200 240" fill="none" aria-hidden="true">
+            <path d="M0 110C120 70 220 70 300 110C380 150 520 150 600 110C680 70 820 70 900 110C980 150 1080 150 1200 110V0H0V110Z" fill="#FFFFFF"/>
+            <path d="M0 180C120 140 220 140 300 180C380 220 520 220 600 180C680 140 820 140 900 180C980 220 1080 220 1200 180V40H0V180Z" fill="#FFFFFF" opacity="0.65"/>
+          </svg>
+        </div>
+
+        <!-- Lanterns (CSS + SVG) -->
+        <div class="absolute -left-4 -top-6 hidden sm:block">
+          <div class="lantern-sway">
+            <div class="h-10 w-1.5 mx-auto bg-white/70 rounded-full"></div>
+            <div class="relative mt-2 h-24 w-20">
+              <div class="absolute inset-0 rounded-[18px] bg-gradient-to-b from-lantern-500 to-lantern-700 shadow-lg"></div>
+              <div class="absolute inset-y-2 left-2 right-2 rounded-[14px] bg-white/10"></div>
+              <div class="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-10 rounded-full bg-gold-200 shadow"></div>
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 h-7 w-2.5 bg-gold-200 rounded-b-full"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -right-4 -top-6 hidden sm:block">
+          <div class="lantern-sway">
+            <div class="h-10 w-1.5 mx-auto bg-white/70 rounded-full"></div>
+            <div class="relative mt-2 h-24 w-20">
+              <div class="absolute inset-0 rounded-[18px] bg-gradient-to-b from-lantern-500 to-lantern-700 shadow-lg"></div>
+              <div class="absolute inset-y-2 left-2 right-2 rounded-[14px] bg-white/10"></div>
+              <div class="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-10 rounded-full bg-gold-200 shadow"></div>
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 h-7 w-2.5 bg-gold-200 rounded-b-full"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content container -->
+        <div class="relative p-6 sm:p-10">
+          <!-- Brand -->
+          <div class="flex items-center justify-center">
+            <div class="inline-flex items-center gap-3 rounded-full bg-white/65 px-4 py-2 ring-1 ring-white/50 shadow-sm">
+              <div class="h-9 w-9 rounded-full bg-ocean-600 flex items-center justify-center text-white font-black tracking-tight">
+                OP
+              </div>
+              <div class="leading-tight">
+                <div class="text-sm font-semibold text-ocean-900">Octopool</div>
+                <div class="text-xs text-ocean-800/75">Holiday notice</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Title -->
+          <header class="mt-6 text-center">
+            <p class="text-xs sm:text-sm font-semibold tracking-[0.18em] text-white/95 drop-shadow">
+              NEW YEAR’S HOLIDAY NOTICE 2026
+            </p>
+            <h1 class="mt-3 text-3xl sm:text-5xl font-black leading-tight gold-text">
+              THÔNG BÁO NGHỈ TẾT DƯƠNG LỊCH 2026
+            </h1>
+            <p class="mt-3 max-w-2xl mx-auto text-sm sm:text-base text-white/90 drop-shadow">
+              Kính gửi Quý khách hàng, Octopool xin trân trọng thông báo lịch nghỉ Tết Dương lịch năm 2026 như sau:
+            </p>
+          </header>
+
+          <!-- Schedule cards -->
+          <div class="mt-7 sm:mt-10 grid gap-4 sm:gap-6 lg:grid-cols-2">
+            <!-- Closed -->
+            <article class="glass rounded-2xl p-5 sm:p-6 shadow-[var(--shadow-card)]">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h2 class="text-sm font-extrabold tracking-wider text-ocean-900 uppercase">
+                    Octopool đóng cửa
+                  </h2>
+                  <p class="mt-1 text-xs font-semibold text-ocean-700">
+                    OCTOPOOL CLOSED
+                  </p>
+                </div>
+                <div class="shrink-0 rounded-xl bg-lantern-500/10 p-3 ring-1 ring-lantern-500/20">
+                  <svg class="h-6 w-6 text-lantern-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 3h10v2a4 4 0 0 1-1.172 2.828L15 8.657V11a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8.657l-.828-.829A4 4 0 0 1 4 5V3h3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 14v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="mt-4 rounded-xl bg-white/60 ring-1 ring-white/60 p-4">
+                <p class="text-sm text-ocean-900">
+                  <span class="font-semibold">Từ:</span> Thứ Năm, <span class="font-extrabold">01/01/2026</span>
+                </p>
+                <p class="mt-2 text-sm text-ocean-900">
+                  <span class="font-semibold">Đến:</span> Thứ Sáu, <span class="font-extrabold">02/01/2026</span>
+                </p>
+              </div>
+
+              <p class="mt-4 text-xs sm:text-sm text-ocean-800/90">
+                Trong thời gian nghỉ, các kênh hỗ trợ có thể phản hồi chậm hơn thường lệ. Mong Quý khách thông cảm.
+              </p>
+            </article>
+
+            <!-- Re-open -->
+            <article class="glass rounded-2xl p-5 sm:p-6 shadow-[var(--shadow-card)]">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h2 class="text-sm font-extrabold tracking-wider text-ocean-900 uppercase">
+                    Octopool mở cửa trở lại
+                  </h2>
+                  <p class="mt-1 text-xs font-semibold text-ocean-700">
+                    OCTOPOOL RE-OPENED
+                  </p>
+                </div>
+                <div class="shrink-0 rounded-xl bg-gold-200/40 p-3 ring-1 ring-gold-200/60">
+                  <svg class="h-6 w-6 text-gold-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M8 7V3m8 4V3M5 11h14M7 21h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="mt-4 rounded-xl bg-white/60 ring-1 ring-white/60 p-4">
+                <p class="text-sm text-ocean-900">
+                  <span class="font-semibold">Thứ Bảy:</span> <span class="font-extrabold">03/01/2026</span>
+                </p>
+                <p class="mt-2 text-sm text-ocean-800/90">
+                  Octopool hoạt động bình thường trở lại từ ngày trên.
+                </p>
+              </div>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center rounded-full bg-white/55 px-3 py-1 text-xs font-semibold text-ocean-900 ring-1 ring-white/60">
+                  Hotline: (cập nhật nếu cần)
+                </span>
+                <span class="inline-flex items-center rounded-full bg-white/55 px-3 py-1 text-xs font-semibold text-ocean-900 ring-1 ring-white/60">
+                  Email: (cập nhật nếu cần)
+                </span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Greeting -->
+          <footer class="mt-8 sm:mt-10 text-center">
+            <div class="mx-auto max-w-3xl rounded-2xl bg-ocean-900/35 px-5 py-5 ring-1 ring-white/35">
+              <p class="text-sm sm:text-base font-semibold text-white">
+                Wishing you a year of <span class="font-extrabold">health</span>, <span class="font-extrabold">wealth</span>, and the kind of <span class="font-extrabold">happiness</span> that truly matters!
+              </p>
+              <p class="mt-2 text-sm sm:text-base text-white/95">
+                Trân trọng kính chúc Quý khách một năm mới dồi dào sức khỏe, thịnh vượng và hạnh phúc viên mãn!
+              </p>
+            </div>
+
+            <p class="mt-4 text-xs text-white/85">
+              © 2026 Octopool. Thông tin có thể thay đổi tuỳ theo tình hình thực tế.
+            </p>
+          </footer>
+        </div>
+      </section>
+
+      <!-- Print helper -->
+      <div class="print-hidden mt-6 text-center text-xs text-white/90">
+        Gợi ý: mở trang này và in “Save as PDF” để xuất poster. (Tỉ lệ tối ưu: 1:1 hoặc A4 tuỳ nhu cầu.)
+      </div>
+    </div>
+  </main>
+</body>
+</html>
