@@ -2,6 +2,18 @@
 
 A modern, engineer-centric homepage for HaPBX - Enterprise-Grade VoIP Infrastructure.
 
+## Holiday Notice Poster (Octopool) — 2026
+
+This repo also includes a standalone, print-friendly holiday notice poster (VN + EN):
+
+- File: `holiday-notice-2026.html`
+- Content (Vietnamese): **Thông báo nghỉ Tết Dương lịch 2026** (đóng cửa 01/01–02/01/2026, mở cửa lại 03/01/2026)
+- Notes: Vietnamese spelling and wording have been standardized (e.g. “wealth”, “thịnh vượng”, “Tết Dương lịch”).
+
+### Open / Export
+
+- Open directly in a browser (double-click the file), then use **Print → Save as PDF** to export.
+
 ## Overview
 
 This homepage is designed specifically for technical audiences (DevOps, VoIP Engineers, IT Managers) who value:
