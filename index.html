@@ -685,34 +685,81 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-brand-gray">
+                        <!-- Category: Capacity & API -->
+                        <tr class="bg-brand-dark/60">
+                            <td class="py-4 px-4">
+                                <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Capacity & API</div>
+                            </td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4 bg-brand-yellow/5"></td>
+                            <td class="py-4 px-4"></td>
+                        </tr>
+
                         <!-- Concurrent Calls -->
                         <tr class="hover:bg-brand-dark/50 transition-colors">
                             <td class="py-5 px-4">
-                                <div class="font-medium text-white">Concurrent Calls</div>
-                                <div class="text-sm text-gray-500">Maximum simultaneous calls</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">Concurrent Calls</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="Concurrent Calls definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Peak simultaneous active call legs at a point in time. Transfers/hold can increase call legs; define your peak model during sizing.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Maximum simultaneous calls (peak)</div>
                             </td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">25</td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">100</td>
                             <td class="py-5 px-4 text-center font-mono text-brand-yellow bg-brand-yellow/5">500</td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">Unlimited</td>
                         </tr>
-                        
+
                         <!-- SIP Trunks -->
                         <tr class="hover:bg-brand-dark/50 transition-colors">
                             <td class="py-5 px-4">
                                 <div class="font-medium text-white">SIP Trunks</div>
-                                <div class="text-sm text-gray-500">External connections</div>
+                                <div class="text-sm text-gray-500">External trunk connections</div>
                             </td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">2</td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">10</td>
                             <td class="py-5 px-4 text-center font-mono text-brand-yellow bg-brand-yellow/5">50</td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">Unlimited</td>
                         </tr>
-                        
+
+                        <!-- BYOC -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">BYOC (Bring Your Own Carrier)</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="BYOC definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Use your existing SIP carrier/trunks. HaPBX provides the PBX + routing; carrier billing and numbers remain with you (unless you buy add-ons).
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Connect your own SIP carrier</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
                         <!-- API Rate Limit -->
                         <tr class="hover:bg-brand-dark/50 transition-colors">
                             <td class="py-5 px-4">
-                                <div class="font-medium text-white">API Rate Limit</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">API Rate Limit</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="API rate limit definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Per-tenant request budget across REST endpoints. Burst handling and webhook delivery are separate; contact sales for higher sustained throughput.
+                                        </span>
+                                    </span>
+                                </div>
                                 <div class="text-sm text-gray-500">Requests per minute</div>
                             </td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">100/min</td>
@@ -720,19 +767,248 @@
                             <td class="py-5 px-4 text-center font-mono text-brand-yellow bg-brand-yellow/5">2000/min</td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">Custom</td>
                         </tr>
-                        
-                        <!-- Support SLA -->
+
+                        <!-- Category: Identity & Access -->
+                        <tr class="bg-brand-dark/60">
+                            <td class="py-4 px-4">
+                                <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Identity & Access</div>
+                            </td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4 bg-brand-yellow/5"></td>
+                            <td class="py-4 px-4"></td>
+                        </tr>
+
+                        <!-- SSO / SAML -->
                         <tr class="hover:bg-brand-dark/50 transition-colors">
                             <td class="py-5 px-4">
-                                <div class="font-medium text-white">Support SLA</div>
-                                <div class="text-sm text-gray-500">Response time guarantee</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">SSO / SAML 2.0</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="SSO/SAML definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Centralized login via your identity provider (Okta / Azure AD / Google). Recommended for production orgs and compliance.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">SAML/OIDC enterprise login</div>
                             </td>
-                            <td class="py-5 px-4 text-center text-gray-300">48h</td>
-                            <td class="py-5 px-4 text-center text-gray-300">24h</td>
-                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">4h</td>
-                            <td class="py-5 px-4 text-center text-gray-300">1h + Dedicated</td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
                         </tr>
-                        
+
+                        <!-- RBAC -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">RBAC</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="RBAC definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Control who can manage trunks, call flows, recordings, billing, and exports. Custom roles reduce risk and enable separation of duties.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Role-based access control</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Basic</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Team</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Advanced</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Advanced + Policy</td>
+                        </tr>
+
+                        <!-- MFA Enforcement -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">MFA Enforcement</div>
+                                <div class="text-sm text-gray-500">Org-wide multi-factor auth requirement</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Optional</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- IP Allowlist -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">IP Allowlist</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="IP allowlist definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Restrict dashboard/API access to known corporate IP ranges. Reduces account takeover risk for admin operations.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Restrict admin/API access by IP</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Optional</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- Category: Security & Audit -->
+                        <tr class="bg-brand-dark/60">
+                            <td class="py-4 px-4">
+                                <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Security & Audit</div>
+                            </td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4 bg-brand-yellow/5"></td>
+                            <td class="py-4 px-4"></td>
+                        </tr>
+
+                        <!-- SIP TLS + SRTP -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">SIP TLS + SRTP</div>
+                                <div class="text-sm text-gray-500">Encryption in transit for signaling + media</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- Encryption at Rest -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">Encryption at Rest</div>
+                                <div class="text-sm text-gray-500">Recordings and metadata encrypted by default</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- Audit Logs -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">Audit Logs</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="Audit logs definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Immutable log of admin actions (changes to trunks, call flows, users, exports). Required for security reviews and incident investigations.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Admin actions + configuration changes</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Basic</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Full</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Full + SIEM</td>
+                        </tr>
+
+                        <!-- Security Events Export -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">Security Events Export</div>
+                                <div class="text-sm text-gray-500">Stream audit/security events to SIEM</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Optional</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- Customer-managed keys -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">Customer-managed Keys (BYOK)</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="BYOK definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Use your own KMS keys for data encryption. Common requirement for regulated industries; typically enabled as an Enterprise add-on.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Bring-your-own encryption keys</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Optional</td>
+                        </tr>
+
+                        <!-- Category: Reliability -->
+                        <tr class="bg-brand-dark/60">
+                            <td class="py-4 px-4">
+                                <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Reliability</div>
+                            </td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4 bg-brand-yellow/5"></td>
+                            <td class="py-4 px-4"></td>
+                        </tr>
+
+                        <!-- HA Mode -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">HA Mode</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="High availability mode definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Multi-AZ protects against zone failures within a region. Active-Active improves failover time and keeps capacity online during incidents.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">High availability topology</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Single AZ</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Multi-AZ (A/P)</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Multi-AZ (A/A)</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Custom</td>
+                        </tr>
+
+                        <!-- Multi-region -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">Multi-region</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="Multi-region definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Run in multiple geographic regions with geo-routing and disaster failover. Helps meet latency and data residency requirements.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Geo-redundancy across regions</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Optional</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- Disaster Recovery -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">Disaster Recovery</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="Disaster recovery definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            DR covers recovery from region-level failures. Enterprise can include DR drills and contractually defined RTO/RPO targets.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Recovery plan & failover procedures</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Basic</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
                         <!-- Uptime SLA -->
                         <tr class="hover:bg-brand-dark/50 transition-colors">
                             <td class="py-5 px-4">
@@ -743,6 +1019,104 @@
                             <td class="py-5 px-4 text-center font-mono text-gray-300">99.95%</td>
                             <td class="py-5 px-4 text-center font-mono text-brand-yellow bg-brand-yellow/5">99.99%</td>
                             <td class="py-5 px-4 text-center font-mono text-gray-300">99.999%</td>
+                        </tr>
+
+                        <!-- Category: Recording & Retention -->
+                        <tr class="bg-brand-dark/60">
+                            <td class="py-4 px-4">
+                                <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Recording & Retention</div>
+                            </td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4 bg-brand-yellow/5"></td>
+                            <td class="py-4 px-4"></td>
+                        </tr>
+
+                        <!-- Call Recording -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">Call Recording</div>
+                                <div class="text-sm text-gray-500">Record inbound/outbound calls</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- CDR Retention -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">CDR Retention</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="CDR retention definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            Call Detail Records (CDRs) are metadata (time, from/to, duration, routing). Retention affects reporting, billing reconciliation, and audits.
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Default call metadata storage</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">7 days</td>
+                            <td class="py-5 px-4 text-center text-gray-300">30 days</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">180 days</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Custom</td>
+                        </tr>
+
+                        <!-- Recording Retention -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-medium text-white">Recording Retention</span>
+                                    <span class="relative inline-flex items-center group">
+                                        <button type="button" aria-label="Recording retention definition" class="w-5 h-5 rounded-full border border-brand-gray-light text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60">i</button>
+                                        <span role="tooltip" class="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-72 -translate-x-1/2 rounded-lg border border-brand-gray-light bg-brand-black px-3 py-2 text-xs text-gray-200 shadow-xl opacity-0 translate-y-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                                            How long recordings are stored by default. You can usually extend retention via add-on storage or custom policies (Enterprise).
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-sm text-gray-500">Default storage period</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">—</td>
+                            <td class="py-5 px-4 text-center text-gray-300">30 days</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">180 days</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Custom</td>
+                        </tr>
+
+                        <!-- Exports -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">Exports</div>
+                                <div class="text-sm text-gray-500">CDR/recording exports via UI or API</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">Basic</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">Included</td>
+                            <td class="py-5 px-4 text-center text-gray-300">Included</td>
+                        </tr>
+
+                        <!-- Category: Support -->
+                        <tr class="bg-brand-dark/60">
+                            <td class="py-4 px-4">
+                                <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Support</div>
+                            </td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4"></td>
+                            <td class="py-4 px-4 bg-brand-yellow/5"></td>
+                            <td class="py-4 px-4"></td>
+                        </tr>
+
+                        <!-- Support SLA -->
+                        <tr class="hover:bg-brand-dark/50 transition-colors">
+                            <td class="py-5 px-4">
+                                <div class="font-medium text-white">Support SLA</div>
+                                <div class="text-sm text-gray-500">Response time guarantee</div>
+                            </td>
+                            <td class="py-5 px-4 text-center text-gray-300">48h</td>
+                            <td class="py-5 px-4 text-center text-gray-300">24h</td>
+                            <td class="py-5 px-4 text-center text-brand-yellow bg-brand-yellow/5">4h</td>
+                            <td class="py-5 px-4 text-center text-gray-300">1h + Dedicated</td>
                         </tr>
                         
                         <!-- CTA Row -->
